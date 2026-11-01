@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+.container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.summary-card { background: #f8f9fa; padding: 10px 15px; border-radius: 6px; margin-bottom: 20px; }
+form { display: flex; gap: 10px; margin-bottom: 20px; }
+input, select, button { padding: 8px 12px; font-size: 14px; }
+input { flex: 1; }
+ul { list-style: none; padding: 0; }
+li.task-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+li.task-item.completed .task-title { text-decoration: line-through; color: #888; }
+.task-actions { display: flex; gap: 5px; }
