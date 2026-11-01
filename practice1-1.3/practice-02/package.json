@@ -1,7 +1,0 @@
-{
-  "name": "practice-02",
-  "version": "1.0.0",
-  "description": "Практическая работа №2 - Объекты и сервисы",
-  "type": "module",
-  "main": "src/task-service.js"
-}
