@@ -1,0 +1,13 @@
+{
+  "name": "practice-04",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ПР4: формы, валидация и локальное хранение данных",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "check:service": "node checks/service.checks.js",
+    "check:modules": "node checks/modules.checks.js",
+    "test": "node checks/service.checks.js && node checks/modules.checks.js"
+  }
+}

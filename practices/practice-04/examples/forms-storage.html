@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ПР4 — Эксперименты: форма, валидация, JSON</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="./forms-storage.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Эксперименты: форма, валидация и JSON</h1>
+      <nav class="dataset-nav">
+        <a href="../index.html">К приложению</a>
+        <a href="../checks.html">Проверки</a>
+      </nav>
+      <p class="filters-hint">
+        Перед каждым действием нужно записать прогноз, затем фактический результат и объяснение.
+        Журнал ниже дополняется только тем, что действительно произошло.
+      </p>
+    </header>
+
+    <main class="page-main">
+      <section class="panel" aria-labelledby="exp-form-heading">
+        <h2 id="exp-form-heading">Эксперименты 1–3. Форма и типы значений</h2>
+
+        <form id="demo-form" class="task-form">
+          <div class="form-row">
+            <label for="demo-id">Идентификатор (number, min=1, step=1, required)</label>
+            <input id="demo-id" name="id" type="number" min="1" step="1" required value="20" />
+          </div>
+
+          <div class="form-row">
+            <label for="demo-title">Название (maxlength=100, required)</label>
+            <input
+              id="demo-title"
+              name="title"
+              type="text"
+              maxlength="100"
+              required
+              value="Изучить localStorage"
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="demo-priority">Приоритет</label>
+            <select id="demo-priority" name="priority">
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high" selected>high</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Отправить (submit)</button>
+            <button id="check-validity" type="button">Опыт 1: показать validity</button>
+            <button id="spaces-title" type="button">Опыт 2: вписать пробелы</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="exp-storage-heading">
+        <h2 id="exp-storage-heading">Эксперименты 4–5. Чтение и повреждённый JSON</h2>
+        <div class="form-actions">
+          <button id="read-stored" type="button">Опыт 4: прочитать сохранённое</button>
+          <button id="break-stored" type="button">Опыт 5: записать «{broken-json»</button>
+          <button id="parse-unsafe" type="button">Разобрать без try/catch</button>
+          <button id="parse-safe" type="button">Разобрать в try/catch</button>
+          <button id="remove-stored" type="button">Удалить ключ примеров</button>
+        </div>
+        <p class="filters-hint">
+          Используется отдельный ключ <code>tip-js-practice-04:examples</code>: рабочие данные
+          приложения не затрагиваются.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="log-heading">
+        <h2 id="log-heading">Журнал</h2>
+        <button id="clear-log" type="button">Очистить журнал</button>
+        <pre id="log" class="log"></pre>
+      </section>
+    </main>
+  </body>
+</html>

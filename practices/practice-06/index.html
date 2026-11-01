@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ПР6 — Задачи через HTTP API</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Задачи через HTTP API</h1>
+      <nav class="dataset-nav">
+        <a href="./index.html">Общий набор</a>
+        <a href="./index.html?dataset=variant">Свой вариант</a>
+        <a href="./checks.html">Проверки</a>
+      </nav>
+      <p id="api-url" class="storage-message"></p>
+      <p id="request-duration" class="storage-message" aria-live="polite"></p>
+    </header>
+
+    <main class="page-main">
+      <section class="panel" aria-labelledby="form-title">
+        <h2 id="form-title">Добавление задачи</h2>
+        <form id="task-form" class="task-form">
+          <div class="form-row">
+            <label for="field-title">Название</label>
+            <input id="field-title" name="title" type="text" maxlength="100" required autocomplete="off" />
+            <p id="error-title" class="field-error" data-error-for="title"></p>
+          </div>
+          <div class="form-row">
+            <label for="field-priority">Приоритет</label>
+            <select id="field-priority" name="priority" required>
+              <option value="low">Низкий</option>
+              <option value="medium" selected>Средний</option>
+              <option value="high">Высокий</option>
+            </select>
+            <p id="error-priority" class="field-error" data-error-for="priority"></p>
+          </div>
+          <div class="form-row">
+            <label for="field-category">Категория</label>
+            <select id="field-category" name="categoryId" required></select>
+            <p id="error-categoryId" class="field-error" data-error-for="categoryId"></p>
+          </div>
+          <div class="form-actions">
+            <button id="form-submit" type="submit">Добавить задачу</button>
+            <button id="form-cancel" type="button" hidden>Отменить редактирование</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="filters-heading">
+        <h2 id="filters-heading">Фильтры</h2>
+        <form id="filter-form" class="task-form">
+          <div class="form-row">
+            <label for="filter-completed">Статус</label>
+            <select id="filter-completed" name="completed">
+              <option value="">Все</option>
+              <option value="false">В работе</option>
+              <option value="true">Выполненные</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="filter-priority">Приоритет</label>
+            <select id="filter-priority" name="priority">
+              <option value="">Любой</option>
+              <option value="low">Низкий</option>
+              <option value="medium">Средний</option>
+              <option value="high">Высокий</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="filter-category">Категория</label>
+            <select id="filter-category" name="categoryId">
+              <option value="">Все категории</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="filter-q">Поиск</label>
+            <input id="filter-q" name="q" type="search" maxlength="100" autocomplete="off" />
+          </div>
+          <div class="form-actions">
+            <button type="submit">Применить фильтры</button>
+            <button id="reset-filters" type="button">Сбросить фильтры</button>
+            <button id="reset-data" type="button">Восстановить набор</button>
+            <button id="retry-load" type="button">Повторить загрузку</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <h2 id="list-heading">Список задач</h2>
+        <p id="list-status" class="operation-message" role="status" aria-live="polite"></p>
+        <p id="operation-message" class="draft-message" role="status" aria-live="polite"></p>
+        <p id="found-count" class="filters-hint"></p>
+        <ul id="task-list" class="task-list" aria-busy="false"></ul>
+      </section>
+    </main>
+  </body>
+</html>

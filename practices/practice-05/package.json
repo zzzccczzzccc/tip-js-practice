@@ -1,0 +1,19 @@
+{
+  "name": "practice-05",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ПР5: асинхронные операции и получение данных с сервера",
+  "type": "module",
+  "scripts": {
+    "start": "node api/server.mjs",
+    "client": "node src/main.js",
+    "example:order": "node examples/event-loop.js",
+    "example:fetch": "node examples/fetch-basics.js",
+    "example:delay": "node examples/delay-compare.js",
+    "check:api": "node checks/api-server.checks.js",
+    "check:client": "node checks/api-client.checks.js",
+    "check:integration": "node checks/integration.checks.js",
+    "check:extension": "node checks/extension.checks.js",
+    "test": "npm run check:api && npm run check:client && npm run check:integration"
+  }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ПР6 — браузерные проверки</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./checks/browser.checks.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Браузерные проверки ПР6</h1>
+      <nav class="dataset-nav"><a href="./index.html">К приложению</a></nav>
+    </header>
+    <main class="page-main">
+      <section class="panel">
+        <h2>Итог</h2>
+        <p id="checks-summary" class="checks-summary">Проверки выполняются…</p>
+      </section>
+      <section class="panel">
+        <h2>Протокол</h2>
+        <pre id="checks-log" class="checks-log"></pre>
+      </section>
+      <section class="panel">
+        <h2>Приложение</h2>
+        <iframe id="app-frame" class="checks-frame" title="Приложение"></iframe>
+      </section>
+    </main>
+  </body>
+</html>

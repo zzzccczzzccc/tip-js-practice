@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ПР4 — Задачи: форма и локальное хранение</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Задачи: форма и локальное хранение</h1>
+      <nav class="dataset-nav">
+        <a href="./index.html">Общий набор</a>
+        <a href="./index.html?dataset=variant">Свой вариант</a>
+        <a href="./examples/forms-storage.html">Эксперименты</a>
+        <a href="./checks.html">Проверки</a>
+      </nav>
+      <p id="storage-message" class="storage-message" role="status" aria-live="polite"></p>
+    </header>
+
+    <main class="page-main">
+      <section class="panel" aria-labelledby="form-title">
+        <h2 id="form-title">Добавление задачи</h2>
+
+        <form id="task-form" class="task-form">
+          <div class="form-row">
+            <label for="field-id">Идентификатор</label>
+            <input
+              id="field-id"
+              name="id"
+              type="number"
+              min="1"
+              step="1"
+              required
+              autocomplete="off"
+              aria-describedby="error-id"
+            />
+            <p id="error-id" class="field-error" data-error-for="id"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="field-title">Название</label>
+            <input
+              id="field-title"
+              name="title"
+              type="text"
+              maxlength="100"
+              required
+              autocomplete="off"
+              aria-describedby="error-title"
+            />
+            <p id="error-title" class="field-error" data-error-for="title"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="field-priority">Приоритет</label>
+            <select id="field-priority" name="priority" required aria-describedby="error-priority">
+              <option value="low">Низкий</option>
+              <option value="medium" selected>Средний</option>
+              <option value="high">Высокий</option>
+            </select>
+            <p id="error-priority" class="field-error" data-error-for="priority"></p>
+          </div>
+
+          <div class="form-actions">
+            <button id="form-submit" type="submit">Добавить задачу</button>
+            <button id="form-cancel" type="button" hidden>Отменить редактирование</button>
+          </div>
+        </form>
+
+        <p id="draft-message" class="draft-message" role="status" aria-live="polite"></p>
+        <button id="draft-clear" type="button" hidden>Очистить черновик</button>
+      </section>
+
+      <section class="panel" aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Сводка</h2>
+        <dl id="task-summary" class="task-summary">
+          <div><dt>Всего</dt><dd data-stat="total">0</dd></div>
+          <div><dt>Выполнено</dt><dd data-stat="completed">0</dd></div>
+          <div><dt>Осталось</dt><dd data-stat="pending">0</dd></div>
+          <div><dt>Прогресс</dt><dd data-stat="progress">0.0%</dd></div>
+          <div><dt>Показано</dt><dd data-stat="visible">0</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" aria-labelledby="filters-heading">
+        <h2 id="filters-heading">Фильтры и данные</h2>
+        <div id="task-filters" class="task-filters" role="group" aria-label="Фильтр задач">
+          <button type="button" data-filter="all" class="is-active" aria-pressed="true">
+            <span class="action-label">Все</span>
+          </button>
+          <button type="button" data-filter="pending" aria-pressed="false">
+            <span class="action-label">В работе</span>
+          </button>
+          <button type="button" data-filter="completed" aria-pressed="false">
+            <span class="action-label">Выполненные</span>
+          </button>
+        </div>
+        <p class="filters-hint">
+          Выбор фильтра не изменяет данные и не создаёт запись в <code>localStorage</code>.
+        </p>
+        <button id="reset-storage" type="button">Сбросить сохранённые данные</button>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <h2 id="list-heading">Список задач</h2>
+        <p id="operation-message" class="operation-message" role="status" aria-live="polite"></p>
+        <p id="empty-message" class="empty-message" hidden></p>
+        <ul id="task-list" class="task-list"></ul>
+      </section>
+    </main>
+  </body>
+</html>

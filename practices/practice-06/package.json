@@ -1,0 +1,14 @@
+{
+  "name": "practice-06",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ПР6: подключение браузерного приложения к API",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/start.mjs",
+    "check:api": "node checks/api-server.checks.js",
+    "check:modules": "node checks/modules.checks.js",
+    "check:integration": "node checks/integration.checks.js",
+    "test": "npm run check:api && npm run check:modules && npm run check:integration"
+  }
+}

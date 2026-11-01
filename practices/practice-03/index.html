@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление задачами</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Управление задачами</h1>
+        
+        <div class="summary-card">
+            <h3>Сводка</h3>
+            <p>Всего: <span id="total-count">0</span> | Выполнено: <span id="completed-count">0</span></p>
+        </div>
+
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Введите новую задачу..." required>
+            <select id="priority-select">
+                <option value="Низкий">Низкий</option>
+                <option value="Средний" selected>Средний</option>
+                <option value="Высокий">Высокий</option>
+            </select>
+            <button type="submit">Добавить</button>
+        </form>
+
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Важно: тип module для работы импортов -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

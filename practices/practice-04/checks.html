@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ПР4 — браузерные проверки</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./checks/browser.checks.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Браузерные проверки</h1>
+      <p>
+        Проверки запускаются автоматически и используют отдельные ключи
+        <code>tip-js-practice-04:checks:*</code>. Рабочие данные приложения не затрагиваются. До
+        завершения не нажимайте элементы в области проверяемого приложения.
+      </p>
+      <nav class="dataset-nav"><a href="./index.html">Вернуться к приложению</a></nav>
+    </header>
+
+    <main class="page-main">
+      <section class="panel">
+        <h2>Итог</h2>
+        <p id="checks-summary" class="checks-summary">Проверки выполняются…</p>
+      </section>
+
+      <section class="panel">
+        <h2>Текстовый протокол</h2>
+        <pre id="checks-log" class="checks-log"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Песочница модулей отображения</h2>
+        <div id="sandbox"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Проверяемое приложение</h2>
+        <iframe id="app-frame" class="checks-frame" title="Проверяемое приложение"></iframe>
+      </section>
+    </main>
+  </body>
+</html>
